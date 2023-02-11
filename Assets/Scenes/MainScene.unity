@@ -7831,6 +7831,7 @@ GameObject:
   - component: {fileID: 1146759232}
   - component: {fileID: 1146759234}
   - component: {fileID: 1146759233}
+  - component: {fileID: 1146759235}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -7903,6 +7904,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146759231}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1146759235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146759231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1149086491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14026,6 +14040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6200190654946614729, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6719458744242685811, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -16197,9 +16215,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5935505922322347307, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935505922322347307, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935505922322347307, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935505922322347307, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935505922322347307, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 6200190654946614729, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200190654946614729, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6719458744242685811, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
       propertyPath: m_RootOrder
