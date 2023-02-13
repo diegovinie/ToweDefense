@@ -1,6 +1,8 @@
 
 
-## Ep 09
+# Notes
+
+## Ep 10
 - When the missile doesn't match the coord system, create a GO as parent, check the scale, rotate the missile until it matches the parent.
 
 - `Physics.OverlapSphere()` returns and a array with all GO touching the sphere.
@@ -32,3 +34,14 @@
     - Add new Animation: it creates animation and controller
     - Remember press record in animation panel
     - Change frames then the properties
+
+
+## Ep 11
+- `[System.Serializable]` allows Unity to parse the structure and displays it on the parameter config
+- `[Header("Optional")]` lets the user to know that it's and optional parameter
+- Property `CanBuild` acts like a computed prop
+- `Quaternion.identity`
+- In `PlayerStats` static properties can be modified (Money)
+- Nodes can hold a turret from the beginning, setting it in parameters
+
+
