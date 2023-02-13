@@ -7447,7 +7447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardTurretPrefab: {fileID: 6200190654946614729, guid: f140755ea26038b45ae4a7c0279f6842, type: 3}
-  anotherTurretPrefab: {fileID: 6200190654946614729, guid: c214cbe8c8820c68c955a4cd8117e5dd, type: 3}
+  missileLauncherPrefab: {fileID: 8002314115175082602, guid: 9338b1e4e053059aa996302a0972e746, type: 3}
 --- !u!1001 &1087031158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15394,19 +15394,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249234, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Name
-      value: ShopTurretItem
+      value: MissileLauncherItem
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249238, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e3f181231d2e5a4abf3e612fddcb137, type: 3}
+    - target: {fileID: 8117607149942249238, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Color.b
-      value: 0.46635816
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249238, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Color.g
-      value: 0.754717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249238, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Color.r
-      value: 0.73549306
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249238, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Enabled
@@ -15430,7 +15434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249239, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseAnotherTurret
+      value: PurchaseMissileLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249239, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -16734,7 +16738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249234, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_Name
-      value: ShopTurretItem
+      value: StandardTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 8117607149942249239, guid: dccf84136a48e520f99aa5fb8eb5e565, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

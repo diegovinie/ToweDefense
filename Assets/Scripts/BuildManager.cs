@@ -5,7 +5,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
     private GameObject turretToBuild;
     public GameObject standardTurretPrefab;
-    public GameObject anotherTurretPrefab;
+    public GameObject missileLauncherPrefab;
 
     void Awake()
     {
