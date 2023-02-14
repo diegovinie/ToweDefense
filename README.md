@@ -45,3 +45,16 @@
 - Nodes can hold a turret from the beginning, setting it in parameters
 
 
+## Ep 12
+- Import fonts: in font inspector properties: Create TMP Font asset, generate and save
+- Canvas -> canvas -> Render Mode: World Space
+- Text -> stretch (hold alt and click)
+- `Math.Clamp()` and `string.Format()`
+- For Text Mesh Pro:
+    - `using UnityEngine.UI;`
+    - `using TMPro;`
+    - `TextMeshProUGUI` type
+- Build Effect:
+    - Reduce size with time
+    - Shape hemisphere
+    - Check burst
