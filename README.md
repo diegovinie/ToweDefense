@@ -64,3 +64,16 @@
     - renderer: drop material
     - size over time
     - emission: rate over time = 1
+
+## Ep14
+- Import **Laser Beamer**:
+    - Import new asset in the created folder
+    - scale = 0.5 and apply
+    - In materials:
+        - location: Use External Materials (Legacy) and apply, they will show up in the Materials folder
+- When importing the texture:
+    - Texture Type: Sprite 2D and UI
+    - Sprite Mode: single nad apply
+- Line Renderer Component added to the LaserBeamer
+    - Drop a Material
+    - change the positions
