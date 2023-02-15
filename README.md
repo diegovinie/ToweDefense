@@ -58,3 +58,9 @@
     - Reduce size with time
     - Shape hemisphere
     - Check burst
+
+## Ep13
+- EnemyDeathEffect - take into account:
+    - renderer: drop material
+    - size over time
+    - emission: rate over time = 1
