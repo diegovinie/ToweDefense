@@ -14,6 +14,8 @@ public class Turret : MonoBehaviour
     [Header("Use Laser")]
     public bool useLaser = false;
     public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
+    public Light impactLight;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -26,6 +28,10 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lineRenderer.enabled = false;
+        impactLight.enabled = false;
+        impactEffect.Stop();
+
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -59,7 +65,12 @@ public class Turret : MonoBehaviour
     {
         if (target == null) {
             if (useLaser) {
-                if (lineRenderer.enabled) lineRenderer.enabled = false;
+                if (lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                    impactLight.enabled = false;
+                    impactEffect.Stop();
+                }
             }
 
             return;
@@ -95,10 +106,20 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        if (!lineRenderer.enabled) lineRenderer.enabled = true;
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactLight.enabled = true;
+            impactEffect.Play();
+        }
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
+
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.position = target.position + dir.normalized * 1f;
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     void Shoot()

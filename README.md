@@ -77,3 +77,19 @@
 - Line Renderer Component added to the LaserBeamer
     - Drop a Material
     - change the positions
+
+## Ep15
+- Laser Impact
+    - Use shape = cone to
+    - material: activate Emission, global ilumination: off
+    - For better performance, In collision:
+        - create a new layer called environment, assign it to nodes and ground
+        - collide with: environment (only)
+    - Set the direction towards the firePoint
+
+- You can nest particle systems
+
+- LaserGlow
+    - Color over lifetime: fade out
+    - material: render = additive (legacy)
+        - texture: default-particle
