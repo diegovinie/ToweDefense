@@ -9890,6 +9890,7 @@ MonoBehaviour:
   fireRate: 1
   useLaser: 1
   lineRenderer: {fileID: 5054727377650872774}
+  damageOverTime: 30
   impactEffect: {fileID: 799628225}
   impactLight: {fileID: 830728278}
   enemyTag: Enemy

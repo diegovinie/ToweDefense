@@ -93,3 +93,11 @@
     - Color over lifetime: fade out
     - material: render = additive (legacy)
         - texture: default-particle
+
+## Ep16
+- Let's move the movement mechanism to its own script
+- Use `[RequireComponent(typeof(Enemy))]` when you want a strict dependency
+- `[HideInInspector]`
+- To ensure that EnemyMovement will be run after Enemy (a common practice for debuff)
+    - Go to Project Settings -> Script Execution order
+    - Add EnemyMovement 100ms after
