@@ -101,3 +101,29 @@
 - To ensure that EnemyMovement will be run after Enemy (a common practice for debuff)
     - Go to Project Settings -> Script Execution order
     - Add EnemyMovement 100ms after
+
+
+## Ep17
+- Game Object (stretched) -> panel -> text:
+    - Create TMP font
+- Shadow in text not working
+- OverlayCanvas -> Canvas scaler:
+    - UI Scale Mode: Scale with screen size
+    - Screen Match mode and move all to **height** (disabled because turrets look stretched)
+- **Static variables** carry on from one scene to another
+- Use a temporary end game key
+- Scene Management:
+    - Go to File > Build Settings
+    - Drop the MainScene and notice the index
+- Tune the highlight of the buttons
+- Animation:
+    - Background:
+        - Add Canvas Group Component (change the alpha without messing around with the color)
+    - Game Over text: come down and fade in
+        - Add Canvas group
+    - Round survived: scale and fade in
+        - Add Canvas Group
+    - Buttons: pop up
+        - Add Canvas Group
+        - tweak size and alpha
+- Problem with standard turret, no line renderer assigned.

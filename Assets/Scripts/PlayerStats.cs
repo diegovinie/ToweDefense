@@ -8,12 +8,14 @@ public class PlayerStats : MonoBehaviour
     public int startMoney = 400;
     public static int Lives;
     public int startLives = 10;
+    public static int Rounds;
 
     // Start is called before the first frame update
     void Start()
     {
         Money = startMoney;
         Lives = startLives;
+        Rounds = 0;
     }
 
     // Update is called once per frame
