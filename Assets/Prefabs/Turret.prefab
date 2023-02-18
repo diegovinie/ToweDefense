@@ -165,6 +165,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   fireRate: 1
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  damageOverTime: 30
+  slowPct: 0.5
+  impactEffect: {fileID: 1239104612780599286, guid: 123fbf65abebdf758a609d86842f87ca, type: 3}
+  impactLight: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 5935505922322347307}
   turnSpeed: 10

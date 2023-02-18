@@ -127,3 +127,11 @@
         - Add Canvas Group
         - tweak size and alpha
 - Problem with standard turret, no line renderer assigned.
+
+## Ep18
+- Canvas
+    - In the nodeUI, GameObject must be placed where the turret is and the canvas can be repositioned
+    - Render Mode: World Space
+    - In Text boxes we can use html tags
+    - In the inspector, selecting Debug we can see the private variables
+

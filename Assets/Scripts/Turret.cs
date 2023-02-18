@@ -31,8 +31,12 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lineRenderer.enabled = false;
-        impactLight.enabled = false;
+        if (useLaser)
+        {
+            lineRenderer.enabled = false;
+            impactLight.enabled = false;
+        }
+
         impactEffect.Stop();
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
