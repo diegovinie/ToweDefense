@@ -135,3 +135,5 @@
     - In Text boxes we can use html tags
     - In the inspector, selecting Debug we can see the private variables
 
+## Ep 19
+    - In any canvas, Graphic Raycaster overlaps with the pointing events.
