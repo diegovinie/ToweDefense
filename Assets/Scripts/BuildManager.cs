@@ -7,6 +7,7 @@ public class BuildManager : MonoBehaviour
     private Node selectedNode;
     public NodeUI nodeUI;
     public GameObject buildEffect;
+    public GameObject sellEffect;
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
 

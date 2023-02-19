@@ -137,3 +137,7 @@
 
 ## Ep 19
     - In any canvas, Graphic Raycaster overlaps with the pointing events.
+
+## Ep 20
+- I messed up with the sellEffect, and I had to undo changes in the file from git history.
+

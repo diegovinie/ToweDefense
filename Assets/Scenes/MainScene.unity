@@ -5393,7 +5393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 604112468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1266437706}
+        m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &604112468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9943,6 +9955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeUI: {fileID: 1266437706}
   buildEffect: {fileID: 3046687711493910458, guid: 1dbd96426d1ef2243b67298795a6e730, type: 3}
+  sellEffect: {fileID: 1726002078371931050, guid: 78ca6e176d288ec75994c4ce7066be4a, type: 3}
 --- !u!114 &1061355780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12097,6 +12110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 1017785185}
   upgradeCost: {fileID: 583449811}
+  sellCost: {fileID: 277356380}
   upgradeButton: {fileID: 854786090}
 --- !u!1001 &1270960753
 PrefabInstance:
