@@ -152,3 +152,7 @@
 - Break prefab instance in modern Unity: `Prefab > Unpack completely`
 - To assign the existing button animation: Add Animator component and for controller select Button
 - Add the new scene to Build settings (first slot)
+
+## Ep 23
+- In an image, when we use a sprite we can control the fill with fillAmount, we need a tiny white sprite.
+- White sprites can work with any color (color * 1 = color)
