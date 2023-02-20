@@ -146,3 +146,9 @@
 - Animator:
     - Update Mode: Unscaled time (to prevent freezing when delta time is 0)
     - For buttons we can create an animator controller (with all states)
+
+## Ep 22
+- To place the camera in the view: Camera selected and `Crtl + Shift + F `
+- Break prefab instance in modern Unity: `Prefab > Unpack completely`
+- To assign the existing button animation: Add Animator component and for controller select Button
+- Add the new scene to Build settings (first slot)

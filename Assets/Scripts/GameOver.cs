@@ -27,11 +27,11 @@ public class GameOver : MonoBehaviour
     {
         // the index is from Build Settings, but another way:
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Menu()
     {
-        Debug.Log("Go to menu");
+        SceneManager.LoadScene(0);
     }
 }
