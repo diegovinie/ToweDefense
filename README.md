@@ -141,3 +141,8 @@
 ## Ep 20
 - I messed up with the sellEffect, and I had to undo changes in the file from git history.
 
+## Ep 21
+- The best way to pause is `Time.timeScale = 0f;`
+- Animator:
+    - Update Mode: Unscaled time (to prevent freezing when delta time is 0)
+    - For buttons we can create an animator controller (with all states)
