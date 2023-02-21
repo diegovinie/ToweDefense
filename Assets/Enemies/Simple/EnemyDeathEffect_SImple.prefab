@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3465290905149355892}
   - component: {fileID: 3809793270650897768}
   m_Layer: 0
-  m_Name: EnemyDeathEffect
+  m_Name: EnemyDeathEffect_SImple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
