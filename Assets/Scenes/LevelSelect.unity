@@ -221,6 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 1107727574}
+  levelButtons:
+  - {fileID: 1258085514}
+  - {fileID: 1376488110}
 --- !u!4 &356146198
 Transform:
   m_ObjectHideFlags: 0
@@ -887,6 +890,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9051121982202602290, guid: 50946b18ec0e99f898edb1da13ded227, type: 3}
   m_PrefabInstance: {fileID: 9051121981219080726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1258085514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9051121982202602288, guid: 50946b18ec0e99f898edb1da13ded227, type: 3}
+  m_PrefabInstance: {fileID: 9051121981219080726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375299681
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +999,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375299681}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1376488110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9051121982202602288, guid: 50946b18ec0e99f898edb1da13ded227, type: 3}
+  m_PrefabInstance: {fileID: 841548662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431101166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 356146197}
+    - target: {fileID: 9051121982202602289, guid: 50946b18ec0e99f898edb1da13ded227, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4392157
+      objectReference: {fileID: 0}
     - target: {fileID: 9051121982202602290, guid: 50946b18ec0e99f898edb1da13ded227, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
