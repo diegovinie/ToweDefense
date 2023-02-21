@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public TextMeshProUGUI roundsText;
+    public SceneFader sceneFader;
+    public string menuSceneName = "MainMenu";
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +29,11 @@ public class GameOver : MonoBehaviour
     {
         // the index is from Build Settings, but another way:
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(1);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene(0);
+        sceneFader.FadeTo(menuSceneName);
     }
 }

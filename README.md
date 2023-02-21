@@ -156,3 +156,6 @@
 ## Ep 23
 - In an image, when we use a sprite we can control the fill with fillAmount, we need a tiny white sprite.
 - White sprites can work with any color (color * 1 = color)
+
+## Ep 24
+- In order to control the fade animation `AnimationCurve` lets you use a curve in the inspector.
