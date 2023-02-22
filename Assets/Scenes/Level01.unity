@@ -10827,7 +10827,7 @@ MonoBehaviour:
   waves:
   - enemy: {fileID: 1615317671271591229, guid: e845415ce4b2e43eb8ee5bfff7f4dcd7, type: 3}
     count: 2
-    rate: 0.5
+    rate: 2
   - enemy: {fileID: 1615317671271591229, guid: ecd82d466b84ddeb2846a0603b34c5ab, type: 3}
     count: 8
     rate: 3

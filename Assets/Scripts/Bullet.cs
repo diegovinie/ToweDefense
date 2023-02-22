@@ -69,9 +69,18 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                DamageRanged(collider.gameObject);
             }
         }
+    }
+
+    void DamageRanged(GameObject enemyGO)
+    {
+        Enemy enemy = enemyGO.GetComponent<Enemy>();
+        float distance = Vector3.Distance(transform.position, enemyGO.transform.position);
+        float rangedDamage = 50 - 50 * distance / explosionRadius;
+
+        if (rangedDamage > 0f) enemy.TakeDamage(rangedDamage);
     }
 
     void Damage(Transform enemy)
