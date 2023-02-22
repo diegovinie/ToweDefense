@@ -26,7 +26,6 @@ public class CameraController : MonoBehaviour
     private bool doMovement = true;
     private Vector3 startPos;
     private Quaternion startRot;
-    private RotCorrector corrector;
 
     // Start is called before the first frame update
     void Start()
@@ -55,19 +54,19 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetKey("w") || Input.mousePosition.y >  Screen.height - panBorderThickness)
         {
-            transform.Translate(corrector.forward * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey("s") || Input.mousePosition.y < panBorderThickness)
         {
-            transform.Translate(corrector.back * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey("d") || Input.mousePosition.x > Screen.width - panBorderThickness)
         {
-            transform.Translate(corrector.right * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey("a") || Input.mousePosition.x < panBorderThickness)
         {
-            transform.Translate(corrector.left * panSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
         }
         if (Input.GetKey(KeyCode.Q) && transform.position.y > minY)
         {
