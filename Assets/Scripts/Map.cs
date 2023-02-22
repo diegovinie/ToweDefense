@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
     public GameObject waypointGroup;
     public int waypointTotal = 9;
     private GameObject[,] nodes;
-    private List<GameObject> waypoints;
+    public List<GameObject> waypoints = new List<GameObject>();
     private bool[,] reachableSlots;
     private int nodeSize = 5;
     private (int, int) startSlot;
@@ -44,10 +44,10 @@ public class Map : MonoBehaviour
         bool isVertical = false;
         int steps = 3;
 
-        int currentX = startSlot.Item1;
-        int currentY = startSlot.Item2;
-        int nextX;
-        int nextY;
+        int currentI = startSlot.Item1;
+        int currentK = startSlot.Item2;
+        int nextI;
+        int nextK;
 
         for (int i = 0; i < waypointTotal - 1; i++)
         {
@@ -55,22 +55,23 @@ public class Map : MonoBehaviour
 
             if (isVertical)
             {
-                nextX = currentX;
-                nextY = currentY + steps;
+                nextI = currentI;
+                nextK = currentK + steps;
 
             } else
             {
-                nextX = currentX + steps;
-                nextY = currentY;
+                nextI = currentI + steps;
+                nextK = currentK;
             }
 
-            SetReachableSlotsLine((currentX, currentY), (nextX, nextY));
+            SetReachableSlotsLine((currentI, currentK), (nextI, nextK));
 
-            CreateWaypoint(nextX, nextY);
+            CreateWaypoint(nextI, nextK);
 
             isVertical = !isVertical;
-            currentX = nextX;
-            currentY = nextY;
+
+            currentI = nextI;
+            currentK = nextK;
         }
 
         CreateWaypoint(endSlot.Item1, endSlot.Item2);
@@ -111,30 +112,28 @@ public class Map : MonoBehaviour
         {
             lr.SetPosition(i + 1, waypoints[i].transform.position + offset);
         }
-
-        // lr.SetPosition(1, endPoint.transform.position);
     }
 
     void SetReachableSlotsLine((int, int) pairA, (int, int) pairB)
     {
-        int ax = pairA.Item1;
-        int ay = pairA.Item2;
-        int bx = pairB.Item1;
-        int by = pairB.Item2;
-        int dx = bx - ax;
-        int dy = by - ay;
+        int ai = pairA.Item1;
+        int ak = pairA.Item2;
+        int bi = pairB.Item1;
+        int bk = pairB.Item2;
+        int di = bi - ai;
+        int dk = bk - ak;
 
-        if (dx == 0)
+        if (di == 0)
         {
-            for (int i = 0; i <= Mathf.Abs(dy); i++)
+            for (int n = 0; n <= Mathf.Abs(dk); n++)
             {
-                reachableSlots[ax, ay + i] = true;
+                reachableSlots[ai, ak + n] = true;
             }
-        } else if (dy == 0)
+        } else if (dk == 0)
         {
-            for (int i = 0; i <= Mathf.Abs(dx); i++)
+            for (int n = 0; n <= Mathf.Abs(di); n++)
             {
-                reachableSlots[ax + i, ay] = true;
+                reachableSlots[ai + n, ak] = true;
             }
         } else
         {
@@ -142,12 +141,12 @@ public class Map : MonoBehaviour
         }
     }
 
-    void CreateWaypoint(int slotX, int slotZ)
+    void CreateWaypoint(int slotI, int slotK)
     {
         Vector3 offset = startPoint.position;
         GameObject wp;
 
-        offset = new Vector3(slotX * nodeSize, 2, -slotZ * nodeSize);
+        offset = new Vector3(slotI * nodeSize, 2, -slotK * nodeSize);
 
         wp = Instantiate(waypointPrefab, offset, Quaternion.identity);
 
