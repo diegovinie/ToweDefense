@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     public float panBorderThickness = 10f;
     public float minY = 10f;
     public float maxY = 80f;
-    private bool doMovement = true;
+    private bool doMovement = false;
     private Vector3 startPos;
     private Quaternion startRot;
 
