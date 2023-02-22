@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
 
     public Image healthBar;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +49,7 @@ public class Enemy : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         PlayerStats.Money += worth;
 
-        WaveSpawner.EnemiesAlive--;
+        WaveSpawner.instance.DecreaseEnemies();
 
         Destroy(effect, 2f);
         Destroy(gameObject);

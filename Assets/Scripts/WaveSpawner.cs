@@ -17,8 +17,17 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI waveCountdownText;
     public GameManager gameManager;
+    public static WaveSpawner instance;
 
 
+    void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +69,6 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveIndex == waves.Length)
         {
-            gameManager.WinLevel();
             this.enabled = false;
         }
     }
@@ -68,5 +76,20 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public void DecreaseEnemies()
+    {
+        WaveSpawner.EnemiesAlive--;
+
+        if (CheckAllWavesDone())
+        {
+            gameManager.WinLevel();
+        }
+    }
+
+    bool CheckAllWavesDone()
+    {
+        return (waveIndex >= waves.Length ) && WaveSpawner.EnemiesAlive <= 0;
     }
 }
