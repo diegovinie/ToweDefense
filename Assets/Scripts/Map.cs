@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    public int size = 10;
+    public int width = 10;
+    public int height = 16;
+    public GameObject ground;
+    public GameObject path;
     public GameObject nodePrefab;
     public GameObject waypointPrefab;
     public Transform startPoint;
@@ -22,11 +25,20 @@ public class Map : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reachableSlots = new bool[size, size];
+        reachableSlots = new bool[width, height];
 
         startSlot = FindSlot(startPoint);
         endSlot = FindSlot(endPoint);
 
+        // (int, int)[] points = MakeRandomPoints(6);
+
+
+        // foreach (var point in points)
+        // {
+        //     CreateWaypoint(point.Item1, point.Item2);
+        // }
+
+        ScaleGround();
         GenerateWaypoints();
         GenerateNodes();
         DrawWaypointPath();
@@ -42,7 +54,7 @@ public class Map : MonoBehaviour
     {
         Vector3 dir;
         bool isVertical = false;
-        int steps = 3;
+        int steps = 2;
 
         int currentI = startSlot.Item1;
         int currentK = startSlot.Item2;
@@ -51,6 +63,7 @@ public class Map : MonoBehaviour
 
         for (int i = 0; i < waypointTotal - 1; i++)
         {
+            steps = Random.Range(1, 4);
             dir = (endPoint.position - startPoint.position).normalized;
 
             if (isVertical)
@@ -82,15 +95,15 @@ public class Map : MonoBehaviour
         float delta = 5;
         Vector3 offset;
         GameObject node;
-        nodes = new GameObject[size, size];
+        nodes = new GameObject[width, height];
 
-        for (int j = 0; j < size; j++)
+        for (int j = 0; j < height; j++)
         {
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < width; i++)
             {
-                if (reachableSlots[j, i] == true) continue;
+                if (reachableSlots[i, j] == true) continue;
 
-                offset = delta * (Vector3.right * j + Vector3.back * i);
+                offset = delta * (Vector3.right * i + Vector3.back * j);
                 node = Instantiate(nodePrefab, transform.position + offset, transform.rotation);
 
                 node.transform.SetParent(nodeGroup.transform);
@@ -102,7 +115,7 @@ public class Map : MonoBehaviour
 
     void DrawWaypointPath()
     {
-        LineRenderer lr = GetComponent<LineRenderer>();
+        LineRenderer lr = path.GetComponent<LineRenderer>();
         lr.positionCount = waypointTotal + 1;
         Vector3 offset = Vector3.up * 2;
 
@@ -160,5 +173,41 @@ public class Map : MonoBehaviour
         Vector3 pos = target.transform.position;
 
         return ((int)(pos.x / nodeSize), (int)(-pos.z / nodeSize));
+    }
+
+    (int, int)[] MakeRandomPoints(int total)
+    {
+        Random.Range(1, 5);
+        // int inners = total -2;
+
+        (int, int)[] points = new (int, int)[total];
+        int currentI;
+        int currentK;
+        // int boundI = startSlot.Item1;
+        // int boundK = startSlot.Item2;
+
+
+        for (int n = 0; n < total; n++)
+        {
+            currentI = n == 0 ? startSlot.Item1 : Random.Range(2, width);
+            currentK = n == total - 1 ? endSlot.Item2 : Random.Range(2, height);
+
+            points[n] = (currentI, currentK);
+        }
+
+        return points;
+    }
+
+    void ScaleGround()
+    {
+        ground.transform.localScale = new Vector3(width * nodeSize, 1, height * nodeSize);
+
+        Vector3 nextPos = new Vector3(
+            transform.position.x + width / 2 * nodeSize - 2.5f,
+            ground.transform.position.y,
+            transform.position.z - height / 2 * nodeSize + 2.5f
+        );
+
+        ground.transform.position = nextPos;
     }
 }
