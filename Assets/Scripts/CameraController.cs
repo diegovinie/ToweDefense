@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public struct RotCorrector
 {
@@ -18,6 +20,7 @@ public struct RotCorrector
 
 public class CameraController : MonoBehaviour
 {
+    public Button button;
     public float panSpeed = 30f;
     public float scrollSpeed = 5f;
     public float panBorderThickness = 10f;
@@ -32,6 +35,8 @@ public class CameraController : MonoBehaviour
     {
         startPos = transform.position;
         startRot = transform.rotation;
+
+        SetButtonColor(doMovement);
     }
 
     // Update is called once per frame
@@ -43,7 +48,7 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.L)) doMovement = !doMovement;
+        if (Input.GetKeyDown(KeyCode.L)) ToggleDoMovement();
 
         if (!doMovement) return;
 
@@ -85,5 +90,28 @@ public class CameraController : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         transform.position = pos;
+    }
+
+    public void SetDoMovement(bool status)
+    {
+        doMovement = status;
+
+        SetButtonColor(status);
+
+    }
+
+    public void ToggleDoMovement()
+    {
+        SetDoMovement(!doMovement);
+    }
+
+    void SetButtonColor(bool status)
+    {
+        if (button)
+        {
+            ColorBlock cb = button.colors;
+            cb.colorMultiplier = status ? 2 : 1;
+            button.colors = cb;
+        }
     }
 }
