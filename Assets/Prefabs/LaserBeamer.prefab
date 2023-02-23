@@ -9891,6 +9891,7 @@ MonoBehaviour:
   useLaser: 1
   lineRenderer: {fileID: 5054727377650872774}
   damageOverTime: 30
+  slowPct: 0.5
   impactEffect: {fileID: 799628225}
   impactLight: {fileID: 830728278}
   enemyTag: Enemy
@@ -9905,7 +9906,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610483986986623153}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9940,8 +9941,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 3, z: 0}
-  - {x: 0, y: 3, z: 5}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

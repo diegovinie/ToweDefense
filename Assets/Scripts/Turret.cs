@@ -109,7 +109,7 @@ public class Turret : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         // partToRotate.rotation = lookRotation;
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
+        partToRotate.rotation = Quaternion.Euler(rotation);
     }
 
     void Laser()

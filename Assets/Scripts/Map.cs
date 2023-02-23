@@ -131,6 +131,8 @@ public class Map : MonoBehaviour
                 offset = nodeSize * (Vector3.right * i + Vector3.back * j);
                 node = Instantiate(nodePrefab, transform.position + offset, transform.rotation);
 
+                node.transform.localScale += GetNodeLevel(i, j);
+
                 node.transform.SetParent(nodeGroup.transform);
 
                 nodes[i, j] = node;
@@ -142,7 +144,7 @@ public class Map : MonoBehaviour
     {
         LineRenderer lr = path.GetComponent<LineRenderer>();
         lr.positionCount = waypoints.Count + 1;
-        Vector3 offset = Vector3.up * 2;
+        Vector3 offset = Vector3.up * 0;
 
         lr.SetPosition(0, startPoint.transform.position + offset);
 
@@ -220,5 +222,12 @@ public class Map : MonoBehaviour
         GameObject lastWp = waypoints.FindLast(x => true);
 
         endPoint.transform.position = lastWp.transform.position;
+    }
+
+    Vector3 GetNodeLevel(int i, int k)
+    {
+        float h = 5f * Mathf.Sin(i * Mathf.PI / width);
+
+        return Vector3.up * Mathf.Max(1, h);
     }
 }

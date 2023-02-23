@@ -5,7 +5,6 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor;
     public Color notEnoughMoneyColor;
-    public Vector3 positionOffset;
     private Renderer rend;
     private Color startColor;
     [HideInInspector] public GameObject turret;
@@ -122,6 +121,8 @@ public class Node : MonoBehaviour
 
     public Vector3 GetBuildPosition()
     {
-        return transform.position + positionOffset;
+        Vector3 scale = transform.localScale;
+
+        return transform.position + Vector3.up * Mathf.Abs(scale.y) / 2;
     }
 }
