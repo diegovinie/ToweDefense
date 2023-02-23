@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    [Header("Dimensions")]
     public int width = 10;
     public int height = 16;
-    public GameObject ground;
-    public GameObject path;
+    public float nodeSize = 4.5f;
+    [Header("Prefabs")]
     public GameObject nodePrefab;
     public GameObject waypointPrefab;
+    [Header("Other References")]
     public Transform startPoint;
     public Transform endPoint;
+    public GameObject ground;
+    public GameObject path;
     public GameObject nodeGroup;
     public GameObject waypointGroup;
-    public int waypointTotal = 9;
-    private GameObject[,] nodes;
     public List<GameObject> waypoints = new List<GameObject>();
+    private GameObject[,] nodes;
     private bool[,] reachableSlots;
-    private int nodeSize = 5;
     private (int, int) startSlot;
     private (int, int) endSlot;
 
@@ -26,21 +28,13 @@ public class Map : MonoBehaviour
     void Start()
     {
         reachableSlots = new bool[width, height];
-
         startSlot = FindSlot(startPoint);
         endSlot = FindSlot(endPoint);
 
-        // (int, int)[] points = MakeRandomPoints(6);
-
-
-        // foreach (var point in points)
-        // {
-        //     CreateWaypoint(point.Item1, point.Item2);
-        // }
-
         ScaleGround();
-        GenerateWaypoints();
+        GeneratePathC();
         GenerateNodes();
+        PlaceEndPoint();
         DrawWaypointPath();
     }
 
@@ -50,31 +44,65 @@ public class Map : MonoBehaviour
 
     }
 
-    public void GenerateWaypoints()
+    public void GeneratePathC()
     {
-        Vector3 dir;
         bool isVertical = false;
-        int steps = 2;
+        // random deltas
+        int di;
+        int dk;
+        // max random
+        int maxRI = 5;
+        int maxRK = 4;
+        // boundaries
+        int minI = startSlot.Item1;
+        int minK = startSlot.Item2;
+        int maxI = width - 1;
+        int maxK = height - 1;
 
-        int currentI = startSlot.Item1;
-        int currentK = startSlot.Item2;
+        int currentI = minI;
+        int currentK = minK;
         int nextI;
         int nextK;
+        // directions unitary
+        int dirI = 1;
+        int dirK = 1;
 
-        for (int i = 0; i < waypointTotal - 1; i++)
+        bool working = true;
+
+        while (working)
         {
-            steps = Random.Range(1, 4);
-            dir = (endPoint.position - startPoint.position).normalized;
+            di = Random.Range(3, maxRI);
+            dk = Random.Range(2, maxRK);
 
             if (isVertical)
             {
                 nextI = currentI;
-                nextK = currentK + steps;
+                nextK = currentK + dirK * dk;
 
-            } else
+            }
+            else
             {
-                nextI = currentI + steps;
+                if (currentI + 4 > maxI)
+                {
+                    dirI = -1;
+                }
+
+                nextI = currentI + dirI * di;
                 nextK = currentK;
+            }
+
+            if (nextI >= maxI)
+            {
+                nextI = maxI;
+                working = false;
+            } else if (nextK >= maxK)
+            {
+                nextK = maxK;
+                working = false;
+            } else if (nextI <= minI && dirI < 0)
+            {
+                nextI = minI;
+                working = false;
             }
 
             SetReachableSlotsLine((currentI, currentK), (nextI, nextK));
@@ -86,13 +114,10 @@ public class Map : MonoBehaviour
             currentI = nextI;
             currentK = nextK;
         }
-
-        CreateWaypoint(endSlot.Item1, endSlot.Item2);
     }
 
     public void GenerateNodes()
     {
-        float delta = 5;
         Vector3 offset;
         GameObject node;
         nodes = new GameObject[width, height];
@@ -103,7 +128,7 @@ public class Map : MonoBehaviour
             {
                 if (reachableSlots[i, j] == true) continue;
 
-                offset = delta * (Vector3.right * i + Vector3.back * j);
+                offset = nodeSize * (Vector3.right * i + Vector3.back * j);
                 node = Instantiate(nodePrefab, transform.position + offset, transform.rotation);
 
                 node.transform.SetParent(nodeGroup.transform);
@@ -116,12 +141,12 @@ public class Map : MonoBehaviour
     void DrawWaypointPath()
     {
         LineRenderer lr = path.GetComponent<LineRenderer>();
-        lr.positionCount = waypointTotal + 1;
+        lr.positionCount = waypoints.Count + 1;
         Vector3 offset = Vector3.up * 2;
 
         lr.SetPosition(0, startPoint.transform.position + offset);
 
-        for (int i = 0; i < waypointTotal; i++)
+        for (int i = 0; i < waypoints.Count; i++)
         {
             lr.SetPosition(i + 1, waypoints[i].transform.position + offset);
         }
@@ -136,17 +161,19 @@ public class Map : MonoBehaviour
         int di = bi - ai;
         int dk = bk - ak;
 
+        System.Func<int, int> sgn = delegate(int x) { return (int)(x / Mathf.Abs(x)); };
+
         if (di == 0)
         {
             for (int n = 0; n <= Mathf.Abs(dk); n++)
             {
-                reachableSlots[ai, ak + n] = true;
+                reachableSlots[ai, ak + sgn(dk) * n] = true;
             }
         } else if (dk == 0)
         {
             for (int n = 0; n <= Mathf.Abs(di); n++)
             {
-                reachableSlots[ai + n, ak] = true;
+                reachableSlots[ai + sgn(di) * n, ak] = true;
             }
         } else
         {
@@ -175,29 +202,6 @@ public class Map : MonoBehaviour
         return ((int)(pos.x / nodeSize), (int)(-pos.z / nodeSize));
     }
 
-    (int, int)[] MakeRandomPoints(int total)
-    {
-        Random.Range(1, 5);
-        // int inners = total -2;
-
-        (int, int)[] points = new (int, int)[total];
-        int currentI;
-        int currentK;
-        // int boundI = startSlot.Item1;
-        // int boundK = startSlot.Item2;
-
-
-        for (int n = 0; n < total; n++)
-        {
-            currentI = n == 0 ? startSlot.Item1 : Random.Range(2, width);
-            currentK = n == total - 1 ? endSlot.Item2 : Random.Range(2, height);
-
-            points[n] = (currentI, currentK);
-        }
-
-        return points;
-    }
-
     void ScaleGround()
     {
         ground.transform.localScale = new Vector3(width * nodeSize, 1, height * nodeSize);
@@ -209,5 +213,12 @@ public class Map : MonoBehaviour
         );
 
         ground.transform.position = nextPos;
+    }
+
+    void PlaceEndPoint()
+    {
+        GameObject lastWp = waypoints.FindLast(x => true);
+
+        endPoint.transform.position = lastWp.transform.position;
     }
 }
