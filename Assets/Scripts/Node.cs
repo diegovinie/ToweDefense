@@ -18,6 +18,7 @@ public class Node : MonoBehaviour
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         buildManager = BuildManager.instance;
+        SetStartColor();
     }
 
     // Update is called once per frame
@@ -124,5 +125,13 @@ public class Node : MonoBehaviour
         Vector3 scale = transform.localScale;
 
         return transform.position + Vector3.up * Mathf.Abs(scale.y) / 2;
+    }
+
+    public void SetStartColor()
+    {
+        Color color = rend.material.color;
+        float height = transform.localScale.y;
+        startColor = new Color(color.r, (10 - height) / 10, color.b, color.a);
+        rend.material.color = startColor;
     }
 }
