@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public struct RotCorrector
 {
     public Vector3 forward {
@@ -29,6 +28,9 @@ public class CameraController : MonoBehaviour
     private bool doMovement = false;
     private Vector3 startPos;
     private Quaternion startRot;
+    public Transform target;
+    public bool tracking;
+    public Vector3 targetOffset = new Vector3(0, 3, -5);
 
     // Start is called before the first frame update
     void Start()
@@ -52,12 +54,62 @@ public class CameraController : MonoBehaviour
 
         if (!doMovement) return;
 
-        if (Input.GetKey(KeyCode.C)) {
+        if (Input.GetKey(KeyCode.C))
+        {
             transform.position = startPos;
             transform.rotation = startRot;
+            DisengageTarget();
         }
 
-        if (Input.GetKey("w") || Input.mousePosition.y >  Screen.height - panBorderThickness)
+        if (tracking)
+        {
+            UpdateTrackTarget();
+
+        } else
+        {
+            UpdateFreeCameraControls();
+        }
+    }
+
+    public void SetDoMovement(bool status)
+    {
+        doMovement = status;
+
+        SetButtonColor(status);
+    }
+
+    public void ToggleDoMovement()
+    {
+        SetDoMovement(!doMovement);
+    }
+
+    void SetButtonColor(bool status)
+    {
+        if (button)
+        {
+            ColorBlock cb = button.colors;
+            cb.colorMultiplier = status ? 2 : 1;
+            button.colors = cb;
+        }
+    }
+
+    public void FocusOnTarget(Transform _target)
+    {
+        if (!doMovement) return;
+
+        target = _target;
+        tracking = true;
+    }
+
+    public void DisengageTarget()
+    {
+        target = null;
+        tracking = false;
+    }
+
+    void UpdateFreeCameraControls()
+    {
+        if (Input.GetKey("w") || Input.mousePosition.y > Screen.height - panBorderThickness)
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
         }
@@ -92,26 +144,9 @@ public class CameraController : MonoBehaviour
         transform.position = pos;
     }
 
-    public void SetDoMovement(bool status)
+    void UpdateTrackTarget()
     {
-        doMovement = status;
-
-        SetButtonColor(status);
-
-    }
-
-    public void ToggleDoMovement()
-    {
-        SetDoMovement(!doMovement);
-    }
-
-    void SetButtonColor(bool status)
-    {
-        if (button)
-        {
-            ColorBlock cb = button.colors;
-            cb.colorMultiplier = status ? 2 : 1;
-            button.colors = cb;
-        }
+        transform.position = target.position + targetOffset;
+        transform.LookAt(target);
     }
 }
