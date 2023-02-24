@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class CameraFocusable : MonoBehaviour
 {
-    public CameraController cameraController;
+    private CameraController cameraController;
     public float clickDelay = .5f;
     private float clickTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        cameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
     }
 
     // Update is called once per frame
