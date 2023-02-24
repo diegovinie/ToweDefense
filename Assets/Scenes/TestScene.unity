@@ -1760,6 +1760,37 @@ MonoBehaviour:
   levelToUnlock: 2
   sceneFader: {fileID: 1981256167}
   menuSceneName: MainMenu
+--- !u!1 &539381700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539381701}
+  m_Layer: 0
+  m_Name: Defenses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539381701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539381700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &583449809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3774,6 +3805,7 @@ MonoBehaviour:
   nodeUI: {fileID: 1266437706}
   buildEffect: {fileID: 3046687711493910458, guid: 1dbd96426d1ef2243b67298795a6e730, type: 3}
   sellEffect: {fileID: 1726002078371931050, guid: 78ca6e176d288ec75994c4ce7066be4a, type: 3}
+  defensesGroup: {fileID: 539381700}
 --- !u!114 &1061355780
 MonoBehaviour:
   m_ObjectHideFlags: 0

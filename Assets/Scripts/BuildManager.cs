@@ -10,6 +10,7 @@ public class BuildManager : MonoBehaviour
     public GameObject sellEffect;
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
+    public GameObject defensesGroup;
 
     void Awake()
     {
@@ -68,5 +69,10 @@ public class BuildManager : MonoBehaviour
     public TurretBlueprint GetTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    public void RegisterDefense(GameObject defense)
+    {
+        defense.transform.SetParent(defensesGroup.transform);
     }
 }
