@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
 {
     public Button button;
     public float panSpeed = 30f;
+    public float rotSpeed = 10f;
+    public float zoomSpeed = 20f;
     public float scrollSpeed = 5f;
     public float panBorderThickness = 10f;
     public float minY = 10f;
@@ -63,7 +65,7 @@ public class CameraController : MonoBehaviour
 
         if (tracking)
         {
-            UpdateTrackTarget();
+            UpdateFocusedCameraControl();
 
         } else
         {
@@ -144,9 +146,51 @@ public class CameraController : MonoBehaviour
         transform.position = pos;
     }
 
+    void UpdateFocusedCameraControl()
+    {
+        float angle;
+        int dirY = 1;
+        int dir = 1;
+        Vector3 axis = Vector3.up;
+
+        bool left = Input.GetKey(KeyCode.A);
+        bool right = Input.GetKey(KeyCode.D);
+        bool closer = Input.GetKey(KeyCode.W);
+        bool farther = Input.GetKey(KeyCode.S);
+
+        if (left || right)
+        {
+            dirY = right ? 1 : -1;
+            axis = Vector3.up;
+            angle = Time.deltaTime * dirY * rotSpeed;
+
+            CameraController.RotateAround(transform, target.position, axis, angle);
+        } else if (closer || farther)
+        {
+            dir = closer ? 1 : -1;
+            Vector3 nCam = Vector3.Normalize(target.position - transform.position);
+
+            transform.position += dir * nCam * Time.deltaTime * zoomSpeed;
+        } else
+        {
+            UpdateTrackTarget();
+            return;
+        }
+
+        targetOffset = transform.position - target.position;
+    }
+
     void UpdateTrackTarget()
     {
         transform.position = target.position + targetOffset;
         transform.LookAt(target);
+    }
+
+    // from https://answers.unity.com/questions/1751620/rotating-around-a-pivot-point-using-a-quaternion.html
+    static void RotateAround(Transform transform, Vector3 pivotPoint, Vector3 axis, float angle)
+    {
+        Quaternion rot = Quaternion.AngleAxis(angle, axis);
+        transform.position = rot * (transform.position - pivotPoint) + pivotPoint;
+        transform.rotation = rot * transform.rotation;
     }
 }

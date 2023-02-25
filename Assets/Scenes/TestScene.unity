@@ -3430,6 +3430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1181253201}
   panSpeed: 30
+  rotSpeed: 60
+  zoomSpeed: 20
   scrollSpeed: 5
   panBorderThickness: 10
   minY: 10
