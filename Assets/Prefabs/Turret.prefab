@@ -178,6 +178,7 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 3450875568138322105, guid: bba91e2f52c1b2f35a6e813579812774, type: 3}
   firePoint: {fileID: 8527136799506977942}
+  shotSound: {fileID: 0}
 --- !u!114 &92779054377174534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e2e5d014c3866e2a51ce508b8a3d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 0}
   clickDelay: 0.5
 --- !u!65 &1877637471
 BoxCollider:

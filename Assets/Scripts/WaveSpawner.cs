@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdownText;
     public GameManager gameManager;
     public static WaveSpawner instance;
+    [SerializeField] Transform enemyGroup;
 
 
     void Awake()
@@ -75,7 +76,9 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        GameObject e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+
+        e.transform.SetParent(enemyGroup);
     }
 
     public void DecreaseEnemies()
