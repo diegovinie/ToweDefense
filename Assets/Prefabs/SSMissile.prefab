@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  initialSpeed: 10
+  initialSpeed: 12
   turnSpeed: 1
   impulseTime: 6
   flyingTime: 20

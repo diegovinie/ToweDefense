@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7fb69d413d3e748ea4c0f8e80c2a335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 16
+  width: 24
   height: 18
   nodeSize: 5
   nodePrefab: {fileID: 5269863757542463827, guid: 39c64581f7273410b95b369a1a28c99c, type: 3}
@@ -3260,6 +3260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 4643880268578433320, guid: b7705ff381fd2f574b4f06f2d4fca772, type: 3}
   missileGroup: {fileID: 2088121369}
+  defensesGroup: {fileID: 539381701}
   flyingMissiles: []
   delay: 10
 --- !u!4 &930326001

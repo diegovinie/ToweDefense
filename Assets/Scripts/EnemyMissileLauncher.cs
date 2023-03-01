@@ -6,6 +6,7 @@ public class EnemyMissileLauncher : MonoBehaviour
 {
     [SerializeField] Transform missilePrefab;
     [SerializeField] Transform missileGroup;
+    [SerializeField] Transform defensesGroup;
     [SerializeField] List<Transform> flyingMissiles = new List<Transform>();
 
     [SerializeField] float delay = 10f;
@@ -22,10 +23,10 @@ public class EnemyMissileLauncher : MonoBehaviour
         
     }
 
-    void SpawnMissile()
+    void SpawnMissile(Transform target)
     {
         Transform missile = Instantiate(missilePrefab, transform.position, transform.rotation);
-
+        missile.gameObject.GetComponent<SSMissile>().SetTarget(target);
         missile.SetParent(missileGroup);
         flyingMissiles.Add(missile);
     }
@@ -34,9 +35,16 @@ public class EnemyMissileLauncher : MonoBehaviour
     {
         while (true)
         {
-            SpawnMissile();
+            Transform target = SelectTarget();
+
+            if (target) SpawnMissile(target);
 
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    Transform SelectTarget()
+    {
+        return defensesGroup.childCount > 0 ? defensesGroup.GetChild(Random.Range(0, defensesGroup.childCount)) : null;
     }
 }

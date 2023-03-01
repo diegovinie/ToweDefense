@@ -18,9 +18,6 @@ public class SSMissile : MonoBehaviour
     void Start()
     {
         speed = initialSpeed;
-        GameObject targetGO = GameObject.Find("End");
-
-        if (targetGO) target = targetGO.transform;
 
         StartCoroutine(StartTracking());
     }
@@ -66,5 +63,10 @@ public class SSMissile : MonoBehaviour
         Destroy(gameObject);
 
         if (distance.magnitude < 6) Destroy(target.gameObject);
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
     }
 }
