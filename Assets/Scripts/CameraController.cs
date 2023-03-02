@@ -148,6 +148,12 @@ public class CameraController : MonoBehaviour
 
     void UpdateFocusedCameraControl()
     {
+        if (!target)
+        {
+            DisengageTarget();
+            return;
+        }
+
         float angle;
         int dirY = 1;
         int dir = 1;
