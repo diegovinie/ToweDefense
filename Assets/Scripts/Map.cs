@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    [System.Serializable]
+    public struct Slot
+    {
+        public int x;
+        public int z;
+    }
     [Header("Dimensions")]
     public int width = 10;
     public int height = 16;
@@ -23,13 +29,28 @@ public class Map : MonoBehaviour
     private bool[,] reachableSlots;
     private (int, int) startSlot;
     private (int, int) endSlot;
+    private List<Slot> waypointSlots = new List<Slot>();
 
     // Start is called before the first frame update
     void Start()
     {
-        reachableSlots = new bool[width, height];
         startSlot = FindSlot(startPoint);
         endSlot = FindSlot(endPoint);
+
+        // GenerateMap();   
+        // SaveMap();     
+        LoadMap("saved-001");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void GenerateMap()
+    {
+        reachableSlots = new bool[width, height];
 
         ScaleGround();
         GeneratePathC();
@@ -38,10 +59,56 @@ public class Map : MonoBehaviour
         DrawWaypointPath();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveMap()
     {
+        GameObject selectedGO = null;
 
+        GameObject[] GOs = GameObject.FindGameObjectsWithTag("SavedMap");
+
+        foreach (GameObject go in GOs)
+        {
+            if (go.GetComponent<SavedMap>().available)
+            {
+                selectedGO = go;
+                break;
+            }
+        }
+
+        if (selectedGO != null)
+        {
+            SavedMap savedMap = selectedGO.GetComponent<SavedMap>();
+
+            savedMap.Save(reachableSlots, waypointSlots, width, height);
+        } else
+        {
+            Debug.Log("Could not find and available savedMap GameObject");
+        }
+    }
+
+    public void LoadMap(string name)
+    {
+        GameObject saved = GameObject.Find(name);
+
+        SavedMap savedMap = saved.GetComponent<SavedMap>();
+
+        width = savedMap.width;
+        height = savedMap.height;
+        reachableSlots = new bool[width, height];
+
+        foreach (SavedMap.ReachableSlot slot in savedMap.nodes)
+        {
+            reachableSlots[slot.x, slot.z] = slot.reachable;
+        }
+
+        foreach (Slot wp in savedMap.waypoints)
+        {
+            CreateWaypoint(wp.x, wp.z);
+        }
+
+        ScaleGround();
+        GenerateNodes();
+        PlaceEndPoint();
+        DrawWaypointPath();
     }
 
     public void GeneratePathC()
@@ -194,6 +261,7 @@ public class Map : MonoBehaviour
 
         wp.transform.SetParent(waypointGroup.transform);
 
+        waypointSlots.Add(new Slot { x = slotI, z = slotK });
         waypoints.Add(wp);
     }
 

@@ -961,7 +961,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1117308378}
+  - {fileID: 1649700846}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3026,6 +3028,11 @@ Transform:
   m_Father: {fileID: 2043293789}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &844685046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+  m_PrefabInstance: {fileID: 2140216027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &854786088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,14 +3277,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930325999}
-  m_LocalRotation: {x: -0.7470011, y: 0.11021311, z: -0.052763823, w: 0.65349704}
-  m_LocalPosition: {x: -5, y: 5.2, z: -21.6}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -9.68, y: 0.28, z: -25.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 844685046}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -105.27, y: -57.807007, z: 62.504997}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,6 +3821,57 @@ MonoBehaviour:
   ui: {fileID: 3357667}
   sceneFader: {fileID: 1981256167}
   menuSceneName: MainMenu
+--- !u!1 &1117308377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117308378}
+  - component: {fileID: 1117308379}
+  m_Layer: 0
+  m_Name: saved-002
+  m_TagString: SavedMap
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117308378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117308377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 223113636}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1117308379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117308377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1061f4f20ce0cc5fbc18fd7c43ec934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapName: Saved map
+  description: 
+  width: 0
+  height: 0
+  available: 1
+  nodes: []
+  waypoints: []
 --- !u!1 &1144156222
 GameObject:
   m_ObjectHideFlags: 0
@@ -6032,6 +6091,1377 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76be9b41efebe2144924849c313facac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1649700845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649700846}
+  - component: {fileID: 1649700847}
+  m_Layer: 0
+  m_Name: saved-001
+  m_TagString: SavedMap
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649700846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649700845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 223113636}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649700847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649700845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1061f4f20ce0cc5fbc18fd7c43ec934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapName: Test Map 01
+  description: This is a test
+  width: 24
+  height: 18
+  available: 0
+  nodes:
+  - x: 0
+    z: 0
+    reachable: 0
+  - x: 0
+    z: 1
+    reachable: 1
+  - x: 0
+    z: 2
+    reachable: 0
+  - x: 0
+    z: 3
+    reachable: 0
+  - x: 0
+    z: 4
+    reachable: 0
+  - x: 0
+    z: 5
+    reachable: 0
+  - x: 0
+    z: 6
+    reachable: 0
+  - x: 0
+    z: 7
+    reachable: 0
+  - x: 0
+    z: 8
+    reachable: 0
+  - x: 0
+    z: 9
+    reachable: 0
+  - x: 0
+    z: 10
+    reachable: 0
+  - x: 0
+    z: 11
+    reachable: 0
+  - x: 0
+    z: 12
+    reachable: 0
+  - x: 0
+    z: 13
+    reachable: 0
+  - x: 0
+    z: 14
+    reachable: 0
+  - x: 0
+    z: 15
+    reachable: 0
+  - x: 0
+    z: 16
+    reachable: 0
+  - x: 0
+    z: 17
+    reachable: 0
+  - x: 1
+    z: 0
+    reachable: 0
+  - x: 1
+    z: 1
+    reachable: 1
+  - x: 1
+    z: 2
+    reachable: 0
+  - x: 1
+    z: 3
+    reachable: 0
+  - x: 1
+    z: 4
+    reachable: 0
+  - x: 1
+    z: 5
+    reachable: 0
+  - x: 1
+    z: 6
+    reachable: 0
+  - x: 1
+    z: 7
+    reachable: 0
+  - x: 1
+    z: 8
+    reachable: 0
+  - x: 1
+    z: 9
+    reachable: 0
+  - x: 1
+    z: 10
+    reachable: 0
+  - x: 1
+    z: 11
+    reachable: 0
+  - x: 1
+    z: 12
+    reachable: 0
+  - x: 1
+    z: 13
+    reachable: 0
+  - x: 1
+    z: 14
+    reachable: 0
+  - x: 1
+    z: 15
+    reachable: 0
+  - x: 1
+    z: 16
+    reachable: 0
+  - x: 1
+    z: 17
+    reachable: 0
+  - x: 2
+    z: 0
+    reachable: 0
+  - x: 2
+    z: 1
+    reachable: 1
+  - x: 2
+    z: 2
+    reachable: 0
+  - x: 2
+    z: 3
+    reachable: 0
+  - x: 2
+    z: 4
+    reachable: 0
+  - x: 2
+    z: 5
+    reachable: 0
+  - x: 2
+    z: 6
+    reachable: 0
+  - x: 2
+    z: 7
+    reachable: 0
+  - x: 2
+    z: 8
+    reachable: 0
+  - x: 2
+    z: 9
+    reachable: 0
+  - x: 2
+    z: 10
+    reachable: 0
+  - x: 2
+    z: 11
+    reachable: 0
+  - x: 2
+    z: 12
+    reachable: 0
+  - x: 2
+    z: 13
+    reachable: 0
+  - x: 2
+    z: 14
+    reachable: 0
+  - x: 2
+    z: 15
+    reachable: 0
+  - x: 2
+    z: 16
+    reachable: 0
+  - x: 2
+    z: 17
+    reachable: 0
+  - x: 3
+    z: 0
+    reachable: 0
+  - x: 3
+    z: 1
+    reachable: 1
+  - x: 3
+    z: 2
+    reachable: 1
+  - x: 3
+    z: 3
+    reachable: 1
+  - x: 3
+    z: 4
+    reachable: 1
+  - x: 3
+    z: 5
+    reachable: 0
+  - x: 3
+    z: 6
+    reachable: 0
+  - x: 3
+    z: 7
+    reachable: 0
+  - x: 3
+    z: 8
+    reachable: 0
+  - x: 3
+    z: 9
+    reachable: 0
+  - x: 3
+    z: 10
+    reachable: 0
+  - x: 3
+    z: 11
+    reachable: 0
+  - x: 3
+    z: 12
+    reachable: 0
+  - x: 3
+    z: 13
+    reachable: 0
+  - x: 3
+    z: 14
+    reachable: 0
+  - x: 3
+    z: 15
+    reachable: 0
+  - x: 3
+    z: 16
+    reachable: 0
+  - x: 3
+    z: 17
+    reachable: 0
+  - x: 4
+    z: 0
+    reachable: 0
+  - x: 4
+    z: 1
+    reachable: 0
+  - x: 4
+    z: 2
+    reachable: 0
+  - x: 4
+    z: 3
+    reachable: 0
+  - x: 4
+    z: 4
+    reachable: 1
+  - x: 4
+    z: 5
+    reachable: 0
+  - x: 4
+    z: 6
+    reachable: 0
+  - x: 4
+    z: 7
+    reachable: 0
+  - x: 4
+    z: 8
+    reachable: 0
+  - x: 4
+    z: 9
+    reachable: 0
+  - x: 4
+    z: 10
+    reachable: 0
+  - x: 4
+    z: 11
+    reachable: 0
+  - x: 4
+    z: 12
+    reachable: 0
+  - x: 4
+    z: 13
+    reachable: 0
+  - x: 4
+    z: 14
+    reachable: 0
+  - x: 4
+    z: 15
+    reachable: 0
+  - x: 4
+    z: 16
+    reachable: 0
+  - x: 4
+    z: 17
+    reachable: 0
+  - x: 5
+    z: 0
+    reachable: 0
+  - x: 5
+    z: 1
+    reachable: 0
+  - x: 5
+    z: 2
+    reachable: 0
+  - x: 5
+    z: 3
+    reachable: 0
+  - x: 5
+    z: 4
+    reachable: 1
+  - x: 5
+    z: 5
+    reachable: 0
+  - x: 5
+    z: 6
+    reachable: 0
+  - x: 5
+    z: 7
+    reachable: 0
+  - x: 5
+    z: 8
+    reachable: 0
+  - x: 5
+    z: 9
+    reachable: 0
+  - x: 5
+    z: 10
+    reachable: 0
+  - x: 5
+    z: 11
+    reachable: 0
+  - x: 5
+    z: 12
+    reachable: 0
+  - x: 5
+    z: 13
+    reachable: 0
+  - x: 5
+    z: 14
+    reachable: 0
+  - x: 5
+    z: 15
+    reachable: 0
+  - x: 5
+    z: 16
+    reachable: 0
+  - x: 5
+    z: 17
+    reachable: 0
+  - x: 6
+    z: 0
+    reachable: 0
+  - x: 6
+    z: 1
+    reachable: 0
+  - x: 6
+    z: 2
+    reachable: 0
+  - x: 6
+    z: 3
+    reachable: 0
+  - x: 6
+    z: 4
+    reachable: 1
+  - x: 6
+    z: 5
+    reachable: 1
+  - x: 6
+    z: 6
+    reachable: 1
+  - x: 6
+    z: 7
+    reachable: 1
+  - x: 6
+    z: 8
+    reachable: 0
+  - x: 6
+    z: 9
+    reachable: 0
+  - x: 6
+    z: 10
+    reachable: 0
+  - x: 6
+    z: 11
+    reachable: 0
+  - x: 6
+    z: 12
+    reachable: 0
+  - x: 6
+    z: 13
+    reachable: 0
+  - x: 6
+    z: 14
+    reachable: 0
+  - x: 6
+    z: 15
+    reachable: 0
+  - x: 6
+    z: 16
+    reachable: 0
+  - x: 6
+    z: 17
+    reachable: 0
+  - x: 7
+    z: 0
+    reachable: 0
+  - x: 7
+    z: 1
+    reachable: 0
+  - x: 7
+    z: 2
+    reachable: 0
+  - x: 7
+    z: 3
+    reachable: 0
+  - x: 7
+    z: 4
+    reachable: 0
+  - x: 7
+    z: 5
+    reachable: 0
+  - x: 7
+    z: 6
+    reachable: 0
+  - x: 7
+    z: 7
+    reachable: 1
+  - x: 7
+    z: 8
+    reachable: 0
+  - x: 7
+    z: 9
+    reachable: 0
+  - x: 7
+    z: 10
+    reachable: 0
+  - x: 7
+    z: 11
+    reachable: 0
+  - x: 7
+    z: 12
+    reachable: 0
+  - x: 7
+    z: 13
+    reachable: 0
+  - x: 7
+    z: 14
+    reachable: 0
+  - x: 7
+    z: 15
+    reachable: 0
+  - x: 7
+    z: 16
+    reachable: 0
+  - x: 7
+    z: 17
+    reachable: 0
+  - x: 8
+    z: 0
+    reachable: 0
+  - x: 8
+    z: 1
+    reachable: 0
+  - x: 8
+    z: 2
+    reachable: 0
+  - x: 8
+    z: 3
+    reachable: 0
+  - x: 8
+    z: 4
+    reachable: 0
+  - x: 8
+    z: 5
+    reachable: 0
+  - x: 8
+    z: 6
+    reachable: 0
+  - x: 8
+    z: 7
+    reachable: 1
+  - x: 8
+    z: 8
+    reachable: 0
+  - x: 8
+    z: 9
+    reachable: 0
+  - x: 8
+    z: 10
+    reachable: 0
+  - x: 8
+    z: 11
+    reachable: 0
+  - x: 8
+    z: 12
+    reachable: 0
+  - x: 8
+    z: 13
+    reachable: 0
+  - x: 8
+    z: 14
+    reachable: 0
+  - x: 8
+    z: 15
+    reachable: 0
+  - x: 8
+    z: 16
+    reachable: 0
+  - x: 8
+    z: 17
+    reachable: 0
+  - x: 9
+    z: 0
+    reachable: 0
+  - x: 9
+    z: 1
+    reachable: 0
+  - x: 9
+    z: 2
+    reachable: 0
+  - x: 9
+    z: 3
+    reachable: 0
+  - x: 9
+    z: 4
+    reachable: 0
+  - x: 9
+    z: 5
+    reachable: 0
+  - x: 9
+    z: 6
+    reachable: 0
+  - x: 9
+    z: 7
+    reachable: 1
+  - x: 9
+    z: 8
+    reachable: 0
+  - x: 9
+    z: 9
+    reachable: 0
+  - x: 9
+    z: 10
+    reachable: 0
+  - x: 9
+    z: 11
+    reachable: 0
+  - x: 9
+    z: 12
+    reachable: 0
+  - x: 9
+    z: 13
+    reachable: 0
+  - x: 9
+    z: 14
+    reachable: 0
+  - x: 9
+    z: 15
+    reachable: 0
+  - x: 9
+    z: 16
+    reachable: 0
+  - x: 9
+    z: 17
+    reachable: 0
+  - x: 10
+    z: 0
+    reachable: 0
+  - x: 10
+    z: 1
+    reachable: 0
+  - x: 10
+    z: 2
+    reachable: 0
+  - x: 10
+    z: 3
+    reachable: 0
+  - x: 10
+    z: 4
+    reachable: 0
+  - x: 10
+    z: 5
+    reachable: 0
+  - x: 10
+    z: 6
+    reachable: 0
+  - x: 10
+    z: 7
+    reachable: 1
+  - x: 10
+    z: 8
+    reachable: 1
+  - x: 10
+    z: 9
+    reachable: 1
+  - x: 10
+    z: 10
+    reachable: 1
+  - x: 10
+    z: 11
+    reachable: 0
+  - x: 10
+    z: 12
+    reachable: 0
+  - x: 10
+    z: 13
+    reachable: 0
+  - x: 10
+    z: 14
+    reachable: 0
+  - x: 10
+    z: 15
+    reachable: 0
+  - x: 10
+    z: 16
+    reachable: 0
+  - x: 10
+    z: 17
+    reachable: 0
+  - x: 11
+    z: 0
+    reachable: 0
+  - x: 11
+    z: 1
+    reachable: 0
+  - x: 11
+    z: 2
+    reachable: 0
+  - x: 11
+    z: 3
+    reachable: 0
+  - x: 11
+    z: 4
+    reachable: 0
+  - x: 11
+    z: 5
+    reachable: 0
+  - x: 11
+    z: 6
+    reachable: 0
+  - x: 11
+    z: 7
+    reachable: 0
+  - x: 11
+    z: 8
+    reachable: 0
+  - x: 11
+    z: 9
+    reachable: 0
+  - x: 11
+    z: 10
+    reachable: 1
+  - x: 11
+    z: 11
+    reachable: 0
+  - x: 11
+    z: 12
+    reachable: 0
+  - x: 11
+    z: 13
+    reachable: 0
+  - x: 11
+    z: 14
+    reachable: 0
+  - x: 11
+    z: 15
+    reachable: 0
+  - x: 11
+    z: 16
+    reachable: 0
+  - x: 11
+    z: 17
+    reachable: 0
+  - x: 12
+    z: 0
+    reachable: 0
+  - x: 12
+    z: 1
+    reachable: 0
+  - x: 12
+    z: 2
+    reachable: 0
+  - x: 12
+    z: 3
+    reachable: 0
+  - x: 12
+    z: 4
+    reachable: 0
+  - x: 12
+    z: 5
+    reachable: 0
+  - x: 12
+    z: 6
+    reachable: 0
+  - x: 12
+    z: 7
+    reachable: 0
+  - x: 12
+    z: 8
+    reachable: 0
+  - x: 12
+    z: 9
+    reachable: 0
+  - x: 12
+    z: 10
+    reachable: 1
+  - x: 12
+    z: 11
+    reachable: 0
+  - x: 12
+    z: 12
+    reachable: 0
+  - x: 12
+    z: 13
+    reachable: 0
+  - x: 12
+    z: 14
+    reachable: 0
+  - x: 12
+    z: 15
+    reachable: 0
+  - x: 12
+    z: 16
+    reachable: 0
+  - x: 12
+    z: 17
+    reachable: 0
+  - x: 13
+    z: 0
+    reachable: 0
+  - x: 13
+    z: 1
+    reachable: 0
+  - x: 13
+    z: 2
+    reachable: 0
+  - x: 13
+    z: 3
+    reachable: 0
+  - x: 13
+    z: 4
+    reachable: 0
+  - x: 13
+    z: 5
+    reachable: 0
+  - x: 13
+    z: 6
+    reachable: 0
+  - x: 13
+    z: 7
+    reachable: 0
+  - x: 13
+    z: 8
+    reachable: 0
+  - x: 13
+    z: 9
+    reachable: 0
+  - x: 13
+    z: 10
+    reachable: 1
+  - x: 13
+    z: 11
+    reachable: 1
+  - x: 13
+    z: 12
+    reachable: 1
+  - x: 13
+    z: 13
+    reachable: 1
+  - x: 13
+    z: 14
+    reachable: 0
+  - x: 13
+    z: 15
+    reachable: 0
+  - x: 13
+    z: 16
+    reachable: 0
+  - x: 13
+    z: 17
+    reachable: 0
+  - x: 14
+    z: 0
+    reachable: 0
+  - x: 14
+    z: 1
+    reachable: 0
+  - x: 14
+    z: 2
+    reachable: 0
+  - x: 14
+    z: 3
+    reachable: 0
+  - x: 14
+    z: 4
+    reachable: 0
+  - x: 14
+    z: 5
+    reachable: 0
+  - x: 14
+    z: 6
+    reachable: 0
+  - x: 14
+    z: 7
+    reachable: 0
+  - x: 14
+    z: 8
+    reachable: 0
+  - x: 14
+    z: 9
+    reachable: 0
+  - x: 14
+    z: 10
+    reachable: 0
+  - x: 14
+    z: 11
+    reachable: 0
+  - x: 14
+    z: 12
+    reachable: 0
+  - x: 14
+    z: 13
+    reachable: 1
+  - x: 14
+    z: 14
+    reachable: 0
+  - x: 14
+    z: 15
+    reachable: 0
+  - x: 14
+    z: 16
+    reachable: 0
+  - x: 14
+    z: 17
+    reachable: 0
+  - x: 15
+    z: 0
+    reachable: 0
+  - x: 15
+    z: 1
+    reachable: 0
+  - x: 15
+    z: 2
+    reachable: 0
+  - x: 15
+    z: 3
+    reachable: 0
+  - x: 15
+    z: 4
+    reachable: 0
+  - x: 15
+    z: 5
+    reachable: 0
+  - x: 15
+    z: 6
+    reachable: 0
+  - x: 15
+    z: 7
+    reachable: 0
+  - x: 15
+    z: 8
+    reachable: 0
+  - x: 15
+    z: 9
+    reachable: 0
+  - x: 15
+    z: 10
+    reachable: 0
+  - x: 15
+    z: 11
+    reachable: 0
+  - x: 15
+    z: 12
+    reachable: 0
+  - x: 15
+    z: 13
+    reachable: 1
+  - x: 15
+    z: 14
+    reachable: 0
+  - x: 15
+    z: 15
+    reachable: 0
+  - x: 15
+    z: 16
+    reachable: 0
+  - x: 15
+    z: 17
+    reachable: 0
+  - x: 16
+    z: 0
+    reachable: 0
+  - x: 16
+    z: 1
+    reachable: 0
+  - x: 16
+    z: 2
+    reachable: 0
+  - x: 16
+    z: 3
+    reachable: 0
+  - x: 16
+    z: 4
+    reachable: 0
+  - x: 16
+    z: 5
+    reachable: 0
+  - x: 16
+    z: 6
+    reachable: 0
+  - x: 16
+    z: 7
+    reachable: 0
+  - x: 16
+    z: 8
+    reachable: 0
+  - x: 16
+    z: 9
+    reachable: 0
+  - x: 16
+    z: 10
+    reachable: 0
+  - x: 16
+    z: 11
+    reachable: 0
+  - x: 16
+    z: 12
+    reachable: 0
+  - x: 16
+    z: 13
+    reachable: 1
+  - x: 16
+    z: 14
+    reachable: 1
+  - x: 16
+    z: 15
+    reachable: 1
+  - x: 16
+    z: 16
+    reachable: 0
+  - x: 16
+    z: 17
+    reachable: 0
+  - x: 17
+    z: 0
+    reachable: 0
+  - x: 17
+    z: 1
+    reachable: 0
+  - x: 17
+    z: 2
+    reachable: 0
+  - x: 17
+    z: 3
+    reachable: 0
+  - x: 17
+    z: 4
+    reachable: 0
+  - x: 17
+    z: 5
+    reachable: 0
+  - x: 17
+    z: 6
+    reachable: 0
+  - x: 17
+    z: 7
+    reachable: 0
+  - x: 17
+    z: 8
+    reachable: 0
+  - x: 17
+    z: 9
+    reachable: 0
+  - x: 17
+    z: 10
+    reachable: 0
+  - x: 17
+    z: 11
+    reachable: 0
+  - x: 17
+    z: 12
+    reachable: 0
+  - x: 17
+    z: 13
+    reachable: 0
+  - x: 17
+    z: 14
+    reachable: 0
+  - x: 17
+    z: 15
+    reachable: 1
+  - x: 17
+    z: 16
+    reachable: 0
+  - x: 17
+    z: 17
+    reachable: 0
+  - x: 18
+    z: 0
+    reachable: 0
+  - x: 18
+    z: 1
+    reachable: 0
+  - x: 18
+    z: 2
+    reachable: 0
+  - x: 18
+    z: 3
+    reachable: 0
+  - x: 18
+    z: 4
+    reachable: 0
+  - x: 18
+    z: 5
+    reachable: 0
+  - x: 18
+    z: 6
+    reachable: 0
+  - x: 18
+    z: 7
+    reachable: 0
+  - x: 18
+    z: 8
+    reachable: 0
+  - x: 18
+    z: 9
+    reachable: 0
+  - x: 18
+    z: 10
+    reachable: 0
+  - x: 18
+    z: 11
+    reachable: 0
+  - x: 18
+    z: 12
+    reachable: 0
+  - x: 18
+    z: 13
+    reachable: 0
+  - x: 18
+    z: 14
+    reachable: 0
+  - x: 18
+    z: 15
+    reachable: 1
+  - x: 18
+    z: 16
+    reachable: 0
+  - x: 18
+    z: 17
+    reachable: 0
+  - x: 19
+    z: 0
+    reachable: 0
+  - x: 19
+    z: 1
+    reachable: 0
+  - x: 19
+    z: 2
+    reachable: 0
+  - x: 19
+    z: 3
+    reachable: 0
+  - x: 19
+    z: 4
+    reachable: 0
+  - x: 19
+    z: 5
+    reachable: 0
+  - x: 19
+    z: 6
+    reachable: 0
+  - x: 19
+    z: 7
+    reachable: 0
+  - x: 19
+    z: 8
+    reachable: 0
+  - x: 19
+    z: 9
+    reachable: 0
+  - x: 19
+    z: 10
+    reachable: 0
+  - x: 19
+    z: 11
+    reachable: 0
+  - x: 19
+    z: 12
+    reachable: 0
+  - x: 19
+    z: 13
+    reachable: 0
+  - x: 19
+    z: 14
+    reachable: 0
+  - x: 19
+    z: 15
+    reachable: 1
+  - x: 19
+    z: 16
+    reachable: 1
+  - x: 19
+    z: 17
+    reachable: 1
+  - x: 20
+    z: 0
+    reachable: 0
+  - x: 20
+    z: 1
+    reachable: 0
+  - x: 20
+    z: 2
+    reachable: 0
+  - x: 20
+    z: 3
+    reachable: 0
+  - x: 20
+    z: 4
+    reachable: 0
+  - x: 20
+    z: 5
+    reachable: 0
+  - x: 20
+    z: 6
+    reachable: 0
+  - x: 20
+    z: 7
+    reachable: 0
+  - x: 20
+    z: 8
+    reachable: 0
+  - x: 20
+    z: 9
+    reachable: 0
+  - x: 20
+    z: 10
+    reachable: 0
+  - x: 20
+    z: 11
+    reachable: 0
+  - x: 20
+    z: 12
+    reachable: 0
+  - x: 20
+    z: 13
+    reachable: 0
+  - x: 20
+    z: 14
+    reachable: 0
+  - x: 20
+    z: 15
+    reachable: 0
+  - x: 20
+    z: 16
+    reachable: 0
+  - x: 20
+    z: 17
+    reachable: 0
+  - x: 21
+    z: 0
+    reachable: 0
+  - x: 21
+    z: 1
+    reachable: 0
+  - x: 21
+    z: 2
+    reachable: 0
+  - x: 21
+    z: 3
+    reachable: 0
+  - x: 21
+    z: 4
+    reachable: 0
+  - x: 21
+    z: 5
+    reachable: 0
+  - x: 21
+    z: 6
+    reachable: 0
+  - x: 21
+    z: 7
+    reachable: 0
+  - x: 21
+    z: 8
+    reachable: 0
+  - x: 21
+    z: 9
+    reachable: 0
+  - x: 21
+    z: 10
+    reachable: 0
+  - x: 21
+    z: 11
+    reachable: 0
+  - x: 21
+    z: 12
+    reachable: 0
+  - x: 21
+    z: 13
+    reachable: 0
+  - x: 21
+    z: 14
+    reachable: 0
+  - x: 21
+    z: 15
+    reachable: 0
+  - x: 21
+    z: 16
+    reachable: 0
+  - x: 21
+    z: 17
+    reachable: 0
+  - x: 22
+    z: 0
+    reachable: 0
+  - x: 22
+    z: 1
+    reachable: 0
+  - x: 22
+    z: 2
+    reachable: 0
+  - x: 22
+    z: 3
+    reachable: 0
+  - x: 22
+    z: 4
+    reachable: 0
+  - x: 22
+    z: 5
+    reachable: 0
+  - x: 22
+    z: 6
+    reachable: 0
+  - x: 22
+    z: 7
+    reachable: 0
+  - x: 22
+    z: 8
+    reachable: 0
+  - x: 22
+    z: 9
+    reachable: 0
+  - x: 22
+    z: 10
+    reachable: 0
+  - x: 22
+    z: 11
+    reachable: 0
+  - x: 22
+    z: 12
+    reachable: 0
+  - x: 22
+    z: 13
+    reachable: 0
+  - x: 22
+    z: 14
+    reachable: 0
+  - x: 22
+    z: 15
+    reachable: 0
+  - x: 22
+    z: 16
+    reachable: 0
+  - x: 22
+    z: 17
+    reachable: 0
+  - x: 23
+    z: 0
+    reachable: 0
+  - x: 23
+    z: 1
+    reachable: 0
+  - x: 23
+    z: 2
+    reachable: 0
+  - x: 23
+    z: 3
+    reachable: 0
+  - x: 23
+    z: 4
+    reachable: 0
+  - x: 23
+    z: 5
+    reachable: 0
+  - x: 23
+    z: 6
+    reachable: 0
+  - x: 23
+    z: 7
+    reachable: 0
+  - x: 23
+    z: 8
+    reachable: 0
+  - x: 23
+    z: 9
+    reachable: 0
+  - x: 23
+    z: 10
+    reachable: 0
+  - x: 23
+    z: 11
+    reachable: 0
+  - x: 23
+    z: 12
+    reachable: 0
+  - x: 23
+    z: 13
+    reachable: 0
+  - x: 23
+    z: 14
+    reachable: 0
+  - x: 23
+    z: 15
+    reachable: 0
+  - x: 23
+    z: 16
+    reachable: 0
+  - x: 23
+    z: 17
+    reachable: 0
+  waypoints:
+  - x: 3
+    z: 1
+  - x: 3
+    z: 4
+  - x: 6
+    z: 4
+  - x: 6
+    z: 7
+  - x: 10
+    z: 7
+  - x: 10
+    z: 10
+  - x: 13
+    z: 10
+  - x: 13
+    z: 13
+  - x: 16
+    z: 13
+  - x: 16
+    z: 15
+  - x: 19
+    z: 15
+  - x: 19
+    z: 17
 --- !u!1 &1736939224
 GameObject:
   m_ObjectHideFlags: 0
@@ -7800,6 +9230,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112355305}
   m_CullTransparentMesh: 1
+--- !u!1001 &2140216027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 930326001}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
+      propertyPath: m_Name
+      value: missile-pod
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5939143e00668d7388c2f59543fefff6, type: 3}
 --- !u!1001 &6523215955673403185
 PrefabInstance:
   m_ObjectHideFlags: 0
