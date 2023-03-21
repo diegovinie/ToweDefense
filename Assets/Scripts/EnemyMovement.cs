@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform target;
+    public Transform model;
     private int waypointIndex = 0;
 
     private Enemy enemy;
@@ -23,6 +24,11 @@ public class EnemyMovement : MonoBehaviour
         Vector3 dir = target.position - transform.position;
 
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime);
+
+        if (model != null)
+        {
+            model.rotation = Quaternion.LookRotation(dir.normalized, Vector3.up);
+        }
 
         if (Vector3.Distance(target.position, transform.position) <= 0.2f)
         {

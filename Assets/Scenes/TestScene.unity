@@ -3732,7 +3732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemy: {fileID: 1615317671271591229, guid: e845415ce4b2e43eb8ee5bfff7f4dcd7, type: 3}
+  - enemy: {fileID: 7389079869002294314, guid: 4e81a4e59ea8a630bbc053b61c2da8fa, type: 3}
     count: 2
     rate: 2
   - enemy: {fileID: 1615317671271591229, guid: ecd82d466b84ddeb2846a0603b34c5ab, type: 3}
@@ -5120,7 +5120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427655812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38, y: 3, z: 33}
+  m_LocalPosition: {x: -38, y: 1, z: 33}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6072,7 +6072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637595501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

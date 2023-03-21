@@ -37,8 +37,8 @@ public class Map : MonoBehaviour
         startSlot = FindSlot(startPoint);
         endSlot = FindSlot(endPoint);
 
-        // GenerateMap();   
-        // SaveMap();     
+        // GenerateMap();
+        // SaveMap();
         LoadMap("saved-001");
     }
 
@@ -255,7 +255,7 @@ public class Map : MonoBehaviour
         Vector3 offset = startPoint.position;
         GameObject wp;
 
-        offset = new Vector3(slotI * nodeSize, 2, -slotK * nodeSize);
+        offset = new Vector3(slotI * nodeSize, 0, -slotK * nodeSize);
 
         wp = Instantiate(waypointPrefab, offset, Quaternion.identity);
 
