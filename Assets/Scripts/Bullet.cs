@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-
+    private bool flying = true;
     public float speed = 70f;
     public int damage = 50;
     public float explosionRadius = 0f;
@@ -34,20 +34,22 @@ public class Bullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
+        // if (dir.magnitude <= distanceThisFrame)
+        // {
+        //     HitTarget();
+        //     return;
+        // }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
+        if (!flying) return;
+
+        transform.Translate(Vector3.forward * distanceThisFrame, Space.Self);
+        // if is missile
+        // transform.LookAt(target);
     }
 
-    void HitTarget()
+    void HitTarget(Transform hitted)
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 5f);
+
 
         if (explosionRadius > 0f)
         {
@@ -55,10 +57,9 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Damage(target);
+            Damage(hitted);
         }
 
-        Destroy(gameObject);
     }
 
     void Explode()
@@ -72,6 +73,16 @@ public class Bullet : MonoBehaviour
                 DamageRanged(collider.gameObject);
             }
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            HitTarget(other.transform.parent);
+        }
+
+        Crash();
     }
 
     void DamageRanged(GameObject enemyGO)
@@ -97,5 +108,14 @@ public class Bullet : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+
+    void Crash()
+    {
+        flying = false;
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 5f);
+
+        Destroy(gameObject);
     }
 }

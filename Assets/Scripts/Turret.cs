@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
 {
     Transform target;
     Enemy targetEnemy;
+    AudioSource fireSound;
 
     [Header("General")]
     public float range = 15f;
@@ -36,6 +37,8 @@ public class Turret : MonoBehaviour
             lineRenderer.enabled = false;
             impactLight.enabled = false;
         }
+
+        fireSound = GetComponent<AudioSource>();
 
         impactEffect.Stop();
 
@@ -91,7 +94,7 @@ public class Turret : MonoBehaviour
             Laser();
         } else
         {
-            if (fireCountdown <= 0f)
+            if (IsTargetInAngularRange() && fireCountdown <= 0f)
             {
                 Shoot();
                 fireCountdown = 1f / fireRate;
@@ -136,6 +139,8 @@ public class Turret : MonoBehaviour
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        fireSound.Stop();
+        fireSound.Play();
 
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
@@ -146,5 +151,14 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    bool IsTargetInAngularRange()
+    {
+        Vector3 dir = firePoint.position - target.position;
+
+        float angle = Vector3.Angle(dir, firePoint.eulerAngles);
+
+        return angle < 90f;
     }
 }
