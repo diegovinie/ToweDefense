@@ -24,6 +24,7 @@ public class Turret : MonoBehaviour
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
     public Transform partToRotate;
+    public Transform partToTilt;
     public float turnSpeed = 10f;
 
     public GameObject bulletPrefab;
@@ -66,6 +67,11 @@ public class Turret : MonoBehaviour
         {
             target = nearestEnemy.transform;
             targetEnemy = nearestEnemy.GetComponent<Enemy>();
+
+            if (targetEnemy == null)
+            {
+                targetEnemy = nearestEnemy.GetComponentInParent<Enemy>();
+            }
         } else {
             target = null;
         }
@@ -81,6 +87,7 @@ public class Turret : MonoBehaviour
                     lineRenderer.enabled = false;
                     impactLight.enabled = false;
                     impactEffect.Stop();
+                    fireSound.Stop();
                 }
             }
 
@@ -110,9 +117,19 @@ public class Turret : MonoBehaviour
         Vector3 dir = target.position - transform.position;
 
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        // partToRotate.rotation = lookRotation;
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(rotation);
+        Quaternion lookTilt = Quaternion.LookRotation(target.position - firePoint.position);
+
+        if (partToTilt != null)
+        {
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            Vector3 tilt = Quaternion.Lerp(partToTilt.rotation, lookTilt, Time.deltaTime * turnSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
+            partToTilt.rotation = Quaternion.Euler(tilt.x, rotation.y, 0);
+        } else
+        {
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(rotation);
+        }
     }
 
     void Laser()
@@ -125,6 +142,7 @@ public class Turret : MonoBehaviour
             lineRenderer.enabled = true;
             impactLight.enabled = true;
             impactEffect.Play();
+            fireSound.Play();
         }
 
         lineRenderer.SetPosition(0, firePoint.position);

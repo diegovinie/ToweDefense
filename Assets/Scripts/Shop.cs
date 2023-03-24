@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    public TurretBlueprint machineGun;
     public TurretBlueprint standardTurret;
     public TurretBlueprint missileLauncher;
     public TurretBlueprint laserBeamer;
@@ -17,6 +18,12 @@ public class Shop : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SelectMachineGun()
+    {
+        Debug.Log("MachineGun Selected");
+        buildManager.SelectTurretToBuild(machineGun);
     }
 
     public void SelectStandardTurret()
