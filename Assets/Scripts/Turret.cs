@@ -20,6 +20,8 @@ public class Turret : MonoBehaviour
     public float slowPct = 0.5f;
     public ParticleSystem impactEffect;
     public Light impactLight;
+    [Header("Use Guided")]
+    public bool useGuided;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
@@ -125,6 +127,10 @@ public class Turret : MonoBehaviour
             Vector3 tilt = Quaternion.Lerp(partToTilt.rotation, lookTilt, Time.deltaTime * turnSpeed).eulerAngles;
             partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
             partToTilt.rotation = Quaternion.Euler(tilt.x, rotation.y, 0);
+        } else if (useGuided)
+        {
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
         } else
         {
             Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;

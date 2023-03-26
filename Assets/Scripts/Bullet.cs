@@ -6,10 +6,17 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
     private bool flying = true;
+    float flyingTime = 0f;
     public float speed = 70f;
     public int damage = 50;
-    public float explosionRadius = 0f;
+
     public GameObject impactEffect;
+    [Header("For Explosive")]
+    public float explosionRadius = 0f;
+
+    [Header("For Guided")]
+    [SerializeField] bool isGuided;
+    [SerializeField] float attackDistance = 5f;
 
     public void Seek(Transform _target)
     {
@@ -25,6 +32,10 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        flyingTime += Time.deltaTime;
+
+        if (flyingTime > 20f) Destroy(gameObject);
+
         if (target == null)
         {
             Destroy(gameObject);
@@ -34,17 +45,25 @@ public class Bullet : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        // if (dir.magnitude <= distanceThisFrame)
-        // {
-        //     HitTarget();
-        //     return;
-        // }
-
         if (!flying) return;
 
+        if (isGuided)
+        {
+            // transform.LookAt(target);
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 dire = lookRotation.eulerAngles;
+
+            if (Vector3.ProjectOnPlane(dir, Vector3.up).magnitude < attackDistance)
+            {
+                transform.rotation = lookRotation;
+            } else
+            {
+                transform.rotation = Quaternion.Euler(0, dire.y, 0);
+
+            }
+        }
+
         transform.Translate(Vector3.forward * distanceThisFrame, Space.Self);
-        // if is missile
-        // transform.LookAt(target);
     }
 
     void HitTarget(Transform hitted)
@@ -54,6 +73,7 @@ public class Bullet : MonoBehaviour
         if (explosionRadius > 0f)
         {
             Explode();
+            Debug.Log("Explode " + hitted.name);
         }
         else
         {
@@ -88,8 +108,11 @@ public class Bullet : MonoBehaviour
     void DamageRanged(GameObject enemyGO)
     {
         Enemy enemy = enemyGO.GetComponent<Enemy>();
+
+        if (!enemy) enemy =enemyGO.GetComponentInParent<Enemy>();
+
         float distance = Vector3.Distance(transform.position, enemyGO.transform.position);
-        float rangedDamage = 50 - 50 * distance / explosionRadius;
+        float rangedDamage = damage - damage * distance / explosionRadius;
 
         if (rangedDamage > 0f) enemy.TakeDamage(rangedDamage);
     }
