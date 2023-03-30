@@ -8,6 +8,7 @@ public class LaserPointer : MonoBehaviour
     [SerializeField] LayerMask excludedLayer;
     public bool lightEnabled;
     Light lightPoint;
+    [SerializeField] Vector3 direction = Vector3.forward;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,9 @@ public class LaserPointer : MonoBehaviour
         RaycastHit hit;
 
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(origin.transform.position, origin.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~excludedLayer))
+        if (Physics.Raycast(origin.transform.position, origin.transform.TransformDirection(direction), out hit, Mathf.Infinity, ~excludedLayer))
         {
-            Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+            Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(direction) * hit.distance, Color.red);
             // Debug.Log("Did Hit " + hit.collider);
 
             transform.position = hit.point;
@@ -39,7 +40,7 @@ public class LaserPointer : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(Vector3.forward) * 1000, Color.blue);
+            Debug.DrawRay(origin.transform.position, origin.transform.TransformDirection(direction) * 1000, Color.blue);
             lightPoint.enabled = false;
         }
     }

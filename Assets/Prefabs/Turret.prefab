@@ -179,6 +179,7 @@ MonoBehaviour:
   partToRotate: {fileID: 5935505922322347307}
   partToTilt: {fileID: 0}
   turnSpeed: 10
+  offsetCorrection: 1
   bulletPrefab: {fileID: 2682787416523160190, guid: 1dca12dcf38022007a8fa4721c28f26c, type: 3}
   firePoint: {fileID: 8527136799506977942}
 --- !u!114 &92779054377174534
@@ -478,6 +479,10 @@ PrefabInstance:
     - target: {fileID: 8062949358099930207, guid: 449da7883a67cded28352c4734f1ac02, type: 3}
       propertyPath: m_Name
       value: LaserPointer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062949358099930207, guid: 449da7883a67cded28352c4734f1ac02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449da7883a67cded28352c4734f1ac02, type: 3}

@@ -28,6 +28,7 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
     public Transform partToTilt;
     public float turnSpeed = 10f;
+    public float offsetCorrection = 1f;     // this the distance between rotate point and fire point, important for correct aiming
 
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -133,6 +134,8 @@ public class Turret : MonoBehaviour
             partToRotate.rotation = Quaternion.Euler(0, rotation.y, 0);
         } else
         {
+            dir = target.position - (transform.position + new Vector3(0, offsetCorrection, 0));
+            lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
             partToRotate.rotation = Quaternion.Euler(rotation);
         }
