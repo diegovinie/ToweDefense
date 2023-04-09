@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IGameObjectPooled
+public class Bullet : MonoBehaviour, IBulledPooled
 {
     private Transform target;
     private bool flying = true;
     float flyingTime = 0f;
+    [SerializeField] float maxFlyingTime = 1.5f;
     public float speed = 70f;
     public int damage = 50;
 
@@ -17,9 +18,9 @@ public class Bullet : MonoBehaviour, IGameObjectPooled
     [Header("For Guided")]
     [SerializeField] bool isGuided;
     [SerializeField] float attackDistance = 5f;
-    GameObjectPool pool;
+    BulletPool pool;
 
-    public GameObjectPool Pool {
+    public BulletPool Pool {
         get => pool;
         set
         {
@@ -38,7 +39,7 @@ public class Bullet : MonoBehaviour, IGameObjectPooled
     // Start is called before the first frame update
     void Start()
     {
-        Pool = GameObjectPool.instance;
+        Pool = BulletPool.instance as BulletPool;
     }
 
     void OnEnable()
@@ -52,21 +53,15 @@ public class Bullet : MonoBehaviour, IGameObjectPooled
     {
         flyingTime += Time.deltaTime;
 
-        if (flyingTime > 1f) ReturnToPool();
+        if (flyingTime > maxFlyingTime) ReturnToPool();
 
-        // if (target == null)
-        // {
-        //     ReturnToPool();
-        //     return;
-        // }
-
-        Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (!flying) return;
 
-        if (isGuided)
+        if (isGuided && target != null)
         {
+            Vector3 dir = target.position - transform.position;
             // transform.LookAt(target);
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 dire = lookRotation.eulerAngles;
@@ -77,7 +72,6 @@ public class Bullet : MonoBehaviour, IGameObjectPooled
             } else
             {
                 transform.rotation = Quaternion.Euler(0, dire.y, 0);
-
             }
         }
 
@@ -162,6 +156,6 @@ public class Bullet : MonoBehaviour, IGameObjectPooled
 
     void ReturnToPool()
     {
-        pool.Return(gameObject);
+        pool.Return(this);
     }
 }

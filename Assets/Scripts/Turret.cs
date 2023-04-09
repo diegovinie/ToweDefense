@@ -165,12 +165,10 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject  bulletGO = GameObjectPool.instance.Get(firePoint.position, firePoint.rotation);
-        bulletGO.SetActive(true);
+        Bullet  bullet = BulletPool.instance.Get(firePoint.position, firePoint.rotation);
+        bullet.gameObject.SetActive(true);
         fireSound.Stop();
         fireSound.Play();
-
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null) bullet.Seek(target);
     }
