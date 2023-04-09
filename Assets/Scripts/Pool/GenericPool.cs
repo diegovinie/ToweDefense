@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IGenericPooled<P>
+{
+    public P Pool { get; set; }
+}
+
 public abstract class GenericPool<T> : MonoBehaviour where T : Component
 {
     public Queue<T> objects = new Queue<T>();
@@ -44,12 +49,3 @@ public abstract class GenericPool<T> : MonoBehaviour where T : Component
         objects.Enqueue(ob);
     }
 }
-
-// public interface BulletPooled
-// {
-//     public GenericPool<GameObject> pool;
-// }
-
-
-
-

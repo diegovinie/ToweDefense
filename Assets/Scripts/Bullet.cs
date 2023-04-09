@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IBulledPooled
+public class Bullet : MonoBehaviour, IBulletPooled
 {
     private Transform target;
     private bool flying = true;
