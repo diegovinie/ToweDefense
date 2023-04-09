@@ -148,14 +148,20 @@ public class Bullet : MonoBehaviour, IBulletPooled
     void Crash()
     {
         flying = false;
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 5f);
-
         ReturnToPool();
+        GetEffectFromPool();
     }
 
     void ReturnToPool()
     {
         pool.Return(this);
+    }
+
+    void GetEffectFromPool()
+    {
+        GameObject effectIns = GameObjectPool.instance.Get( transform.position, transform.rotation);
+        effectIns.SetActive(true);
+
+        Timer.instance.SetTimeout(4f, () => { GameObjectPool.instance.Return(effectIns); });
     }
 }

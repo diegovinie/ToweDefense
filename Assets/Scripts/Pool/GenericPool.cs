@@ -11,6 +11,7 @@ public abstract class GenericPool<T> : MonoBehaviour where T : Component
 {
     public Queue<T> objects = new Queue<T>();
     [SerializeField] public T prefab;
+    [SerializeField] Transform group;
     public static GenericPool<T> instance { get; private set; }
 
     void Awake()
@@ -47,5 +48,8 @@ public abstract class GenericPool<T> : MonoBehaviour where T : Component
         T ob = GameObject.Instantiate(prefab);
         ob.gameObject.SetActive(false);
         objects.Enqueue(ob);
+
+        if (group != null)
+            ob.transform.SetParent(group);
     }
 }

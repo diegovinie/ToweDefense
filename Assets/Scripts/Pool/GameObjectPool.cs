@@ -11,6 +11,7 @@ public class GameObjectPool : MonoBehaviour
 {
     [SerializeField] public Queue<GameObject> objects = new Queue<GameObject>();
     [SerializeField] public GameObject prefab;
+    [SerializeField] Transform group;
     public static GameObjectPool instance { get; private set; }
 
     void Awake()
@@ -45,10 +46,12 @@ public class GameObjectPool : MonoBehaviour
 
     public void Add(int count)
     {
-        // Debug.Log("Adding " + count + ", count: " + objects.Count);
         GameObject go = GameObject.Instantiate(prefab);
         go.SetActive(false);
         objects.Enqueue(go);
+
+        if (group != null)
+            go.transform.SetParent(group);
     }
 }
 
