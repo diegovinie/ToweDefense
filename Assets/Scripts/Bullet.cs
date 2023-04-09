@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IGameObjectPooled
 {
     private Transform target;
     private bool flying = true;
@@ -17,6 +17,18 @@ public class Bullet : MonoBehaviour
     [Header("For Guided")]
     [SerializeField] bool isGuided;
     [SerializeField] float attackDistance = 5f;
+    GameObjectPool pool;
+
+    public GameObjectPool Pool {
+        get => pool;
+        set
+        {
+            if (pool == null)
+                pool = value;
+            else
+                throw new System.Exception("Bad pool use, this should ony get set once");
+        }
+    }
 
     public void Seek(Transform _target)
     {
@@ -26,7 +38,13 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Pool = GameObjectPool.instance;
+    }
 
+    void OnEnable()
+    {
+        flyingTime = 0f;
+        flying = true;
     }
 
     // Update is called once per frame
@@ -34,13 +52,13 @@ public class Bullet : MonoBehaviour
     {
         flyingTime += Time.deltaTime;
 
-        if (flyingTime > 20f) Destroy(gameObject);
+        if (flyingTime > 1f) ReturnToPool();
 
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        // if (target == null)
+        // {
+        //     ReturnToPool();
+        //     return;
+        // }
 
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
@@ -139,6 +157,11 @@ public class Bullet : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 5f);
 
-        Destroy(gameObject);
+        ReturnToPool();
+    }
+
+    void ReturnToPool()
+    {
+        pool.Return(gameObject);
     }
 }
